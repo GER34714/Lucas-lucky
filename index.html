@@ -35,7 +35,7 @@
       position: relative;
     }
 
-    /* Contenedor del logo con halo de neón violeta más intenso */
+    /* Halo de neón violeta centrado */
     .logo-container {
       position: relative;
       display: inline-block;
@@ -47,30 +47,22 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 350px;
-      height: 350px;
       transform: translate(-50%, -50%);
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(186,85,211,0.6) 0%, rgba(138,43,226,0.4) 70%, transparent 100%);
-      filter: blur(120px);
-      animation: neonPulse 2s infinite alternate;
+      background: radial-gradient(circle, rgba(186,85,211,0.7) 0%, rgba(138,43,226,0.5) 70%, transparent 100%);
+      filter: blur(130px);
       z-index: -1;
+      animation: neonPulse 2s infinite alternate;
     }
-    .logo-container::after {
-      width: 400px;
-      height: 400px;
-      filter: blur(160px);
-      animation-delay: 1s;
-      opacity: 0.4;
-    }
+    .logo-container::before { width: 300px; height: 300px; }
+    .logo-container::after { width: 380px; height: 380px; filter: blur(160px); opacity: 0.5; animation-delay: 1s; }
 
     @keyframes neonPulse {
       0% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
-      50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.2); }
+      50% { opacity: 0.9; transform: translate(-50%, -50%) scale(1.2); }
       100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
     }
 
-    /* Logo principal */
     .logo-img {
       max-width: 280px;
       border-radius: 12px;
@@ -83,7 +75,7 @@
       50% { transform: scale(1.08); }
     }
 
-    /* Botón WhatsApp */
+    /* Botón WhatsApp con hover obvio */
     .btn-whatsapp {
       display: inline-flex;
       align-items: center;
@@ -99,10 +91,16 @@
       transition: all 0.3s ease;
       text-decoration: none;
     }
+    .btn-whatsapp i {
+      transition: all 0.3s ease;
+    }
     .btn-whatsapp:hover {
       background-color: #13a745;
-      box-shadow: 0 0 20px #25D366, 0 0 30px #25D366 inset;
+      box-shadow: 0 0 25px #25D366, 0 0 40px #25D366 inset;
       transform: scale(1.05);
+    }
+    .btn-whatsapp:hover i {
+      text-shadow: 0 0 15px #25D366, 0 0 25px #25D366;
     }
 
     /* Redes sociales */
@@ -112,38 +110,40 @@
       margin: 0 10px;
       transition: transform 0.3s;
     }
-    .social-icons img:hover {
-      transform: scale(1.2);
-    }
+    .social-icons img:hover { transform: scale(1.2); }
 
-    /* Footer legal más comprimido */
+    /* Footer más compacto */
     footer {
       font-size: 0.75rem;
-      padding: 10px 0;
+      padding: 8px 0;
+    }
+
+    @media (max-width: 480px) {
+      .logo-img { max-width: 220px; }
+      .btn-whatsapp { font-size: 1rem; padding: 8px 16px; }
+      .social-icons img { width: 32px; height: 32px; }
     }
   </style>
 </head>
 <body class="text-center">
 
-  <!-- Contenido principal -->
   <div class="container py-4 position-relative" style="z-index: 1;">
     <div class="logo-container">
       <img src="https://iili.io/KHIMXUP.md.jpg" alt="Logo LUCAS LUCKY" class="logo-img">
     </div>
 
-    <h1 class="display-4 fw-bold"> LUCAS LUCKY™
-VIRTUAL CASINO 🎰</h1>
+    <h1 class="display-4 fw-bold">🎉 LUCAS LUCKY™ VIRTUAL CASINO 🎰</h1>
 
     <p class="lead">
-       Bienvenido a la nueva era del juego online 💸💰🏆<br>
+      💸 Bienvenido a la nueva era del juego online 💰🏆<br>
       Descubrí la emoción de jugar y ganar desde tu casa con LUCAS LUCKY™ 🎲✨
     </p>
+
     <a href="https://wa.me/5491171334027?text=hola%20lucas!%20Me%20podes%20crear%20un%20usuario%20por%20favor?" 
        class="btn-whatsapp mt-3">
       <i class="fa-brands fa-whatsapp"></i> ¡Quiero jugar ahora!
     </a>
 
-    <!-- Redes sociales -->
     <div class="mt-3 social-icons">
       <a href="https://www.facebook.com/" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_(2019).png" alt="Facebook">
@@ -154,8 +154,7 @@ VIRTUAL CASINO 🎰</h1>
     </div>
   </div>
 
-  <!-- Mensaje legal -->
-  <footer class="bg-dark text-white mt-4 position-relative" style="z-index: 1;">
+  <footer class="bg-dark text-white mt-3 position-relative" style="z-index: 1;">
     <div class="container">
       <small>
         🔞 No apto para menores de 18 años.<br>
