@@ -6,9 +6,9 @@
   <title>LUCAS LUCKY™ - Tu lugar de suerte</title>
   <meta name="description" content="Bienvenido a la nueva era del juego online. LUCAS LUCKY™ te trae diversión, emoción y grandes premios al alcance de tu mano. ¡Jugá ahora!">
 
-  <!-- Open Graph para vista previa en redes -->
+  <!-- Open Graph -->
   <meta property="og:title" content="LUCAS LUCKY™ - Tu lugar de suerte">
-  <meta property="og:description" content="Bienvenido a la nueva era del juego online. ¡Jugá ahora y ganá premios increíbles!">
+  <meta property="og:description" content="Bienvenido a la nueva era del juego online. ¡Diversión, emoción y premios increíbles te esperan!">
   <meta property="og:image" content="https://iili.io/KHIMXUP.md.jpg">
   <meta property="og:url" content="https://lucas-lucky.com/">
   <meta property="og:type" content="website">
@@ -16,7 +16,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="LUCAS LUCKY™ - Tu lugar de suerte">
-  <meta name="twitter:description" content="Bienvenido a la nueva era del juego online. ¡Jugá ahora y ganá premios increíbles!">
+  <meta name="twitter:description" content="Bienvenido a la nueva era del juego online. ¡Diversión, emoción y premios increíbles te esperan!">
   <meta name="twitter:image" content="https://iili.io/KHIMXUP.md.jpg">
 
   <!-- Librerías -->
@@ -25,11 +25,36 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
+    /* Fondo gradiente y luces neón pulsantes */
     body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
       background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
       color: white;
       text-shadow: 0 0 6px rgba(0,0,0,0.5);
+      position: relative;
     }
+    body::before, body::after {
+      content: "";
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      top: -50%;
+      left: -50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+      animation: pulseLight 5s infinite alternate;
+      pointer-events: none;
+    }
+    body::after {
+      animation-delay: 2.5s;
+    }
+    @keyframes pulseLight {
+      0% { transform: scale(1) rotate(0deg); opacity: 0.4; }
+      50% { transform: scale(1.2) rotate(45deg); opacity: 0.7; }
+      100% { transform: scale(1) rotate(90deg); opacity: 0.4; }
+    }
+
     .logo-img {
       max-width: 280px;
       border-radius: 12px;
@@ -39,6 +64,15 @@
       0%,100% { transform: scale(1); }
       50% { transform: scale(1.08); }
     }
+    .social-icons img {
+      width: 40px;
+      height: 40px;
+      margin: 0 10px;
+      transition: transform 0.3s;
+    }
+    .social-icons img:hover {
+      transform: scale(1.2);
+    }
     footer {
       font-size: 0.8rem;
     }
@@ -47,23 +81,37 @@
 <body class="text-center">
 
   <!-- Contenido principal -->
-  <div class="container py-5">
+  <div class="container py-5 position-relative" style="z-index: 1;">
     <img src="https://iili.io/KHIMXUP.md.jpg" alt="Logo LUCAS LUCKY" class="logo-img mb-4">
     <h1 class="display-4 fw-bold">LUCAS LUCKY™</h1>
-    <p class="lead">Bienvenido a la nueva era del juego online.<br>¡Diversión, emoción y premios increíbles te esperan!</p>
+    <p class="lead">
+      🎰 Bienvenido a la nueva era del juego online.  
+      Descubrí la emoción de jugar, ganar y divertirte desde tu casa con LUCAS LUCKY™.  
+      Disfrutá de nuestros juegos seguros y entretenidos, con premios increíbles al alcance de tus manos.
+    </p>
     <a href="https://wa.me/5491171334027?text=hola%20lucas!%20Me%20podes%20crear%20un%20usuario%20por%20favor?" 
        class="btn btn-success btn-lg mt-3">
       <i class="fa-brands fa-whatsapp"></i> ¡Quiero jugar ahora!
     </a>
+
+    <!-- Redes sociales -->
+    <div class="mt-4 social-icons">
+      <a href="https://www.facebook.com/" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_(2019).png" alt="Facebook">
+      </a>
+      <a href="https://www.instagram.com/" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+      </a>
+    </div>
   </div>
 
   <!-- Mensaje legal -->
-  <footer class="bg-dark text-white py-3 mt-5">
+  <footer class="bg-dark text-white py-3 mt-5 position-relative" style="z-index: 1;">
     <div class="container">
       <small>
-        © 2025 LUCAS LUCKY™. Prohibido el acceso a menores de 18 años.
-        Jugar con responsabilidad. Las apuestas pueden generar adicción.
-        Para ayuda, comunicate con la línea 0800-XXX-XXXX.
+        🔞 No apto para menores de 18 años.<br>
+        ⚠️ El juego compulsivo puede generar adicción. Jugá con responsabilidad.<br>
+        © 2025 LUCAS LUCKY™ - Todos los derechos reservados.
       </small>
     </div>
   </footer>
