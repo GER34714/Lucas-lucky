@@ -35,30 +35,38 @@
       position: relative;
     }
 
-    /* Contenedor del logo con halo de neón violeta-azul pulsante */
+    /* Contenedor del logo con halo de neón */
     .logo-container {
       position: relative;
       display: inline-block;
       margin-bottom: 20px;
     }
-    .logo-container::before {
+    .logo-container::before,
+    .logo-container::after {
       content: '';
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 300px;
-      height: 300px;
+      width: 350px;
+      height: 350px;
       transform: translate(-50%, -50%);
       border-radius: 50%;
       background: radial-gradient(circle, rgba(106,17,203,0.5) 0%, rgba(37,117,252,0.5) 70%, transparent 100%);
-      filter: blur(80px);
+      filter: blur(100px);
       animation: neonPulse 2s infinite alternate;
       z-index: -1;
+    }
+    .logo-container::after {
+      width: 400px;
+      height: 400px;
+      filter: blur(140px);
+      animation-delay: 1s;
+      opacity: 0.35;
     }
 
     @keyframes neonPulse {
       0% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
-      50% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.15); }
+      50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.2); }
       100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
     }
 
@@ -100,10 +108,10 @@
       <img src="https://iili.io/KHIMXUP.md.jpg" alt="Logo LUCAS LUCKY" class="logo-img">
     </div>
 
-    <h1 class="display-4 fw-bold">LUCAS LUCKY™</h1>
+    <h1 class="display-4 fw-bold">🎉 LUCAS LUCKY™ 🎰</h1>
     <p class="lead">
-      🎰 Bienvenido a la nueva era del juego online.  
-      Descubrí la emoción de jugar y ganar desde tu casa con LUCAS LUCKY™.
+      🌟 Bienvenido a la nueva era del juego online 💎<br>
+      Descubrí la emoción de jugar y ganar desde tu casa con LUCAS LUCKY™ 🎲✨
     </p>
     <a href="https://wa.me/5491171334027?text=hola%20lucas!%20Me%20podes%20crear%20un%20usuario%20por%20favor?" 
        class="btn btn-success btn-lg mt-3">
