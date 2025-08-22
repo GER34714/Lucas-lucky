@@ -25,7 +25,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-    /* Fondo gradiente y luces neón pulsantes */
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
@@ -35,35 +34,48 @@
       text-shadow: 0 0 6px rgba(0,0,0,0.5);
       position: relative;
     }
-    body::before, body::after {
-      content: "";
+
+    /* Contenedor del logo con halo de neón violeta-azul pulsante */
+    .logo-container {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    .logo-container::before {
+      content: '';
       position: absolute;
-      width: 200%;
-      height: 200%;
-      top: -50%;
-      left: -50%;
-      background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
-      animation: pulseLight 5s infinite alternate;
-      pointer-events: none;
-    }
-    body::after {
-      animation-delay: 2.5s;
-    }
-    @keyframes pulseLight {
-      0% { transform: scale(1) rotate(0deg); opacity: 0.4; }
-      50% { transform: scale(1.2) rotate(45deg); opacity: 0.7; }
-      100% { transform: scale(1) rotate(90deg); opacity: 0.4; }
+      top: 50%;
+      left: 50%;
+      width: 300px;
+      height: 300px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(106,17,203,0.5) 0%, rgba(37,117,252,0.5) 70%, transparent 100%);
+      filter: blur(80px);
+      animation: neonPulse 2s infinite alternate;
+      z-index: -1;
     }
 
+    @keyframes neonPulse {
+      0% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
+      50% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.15); }
+      100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
+    }
+
+    /* Logo principal */
     .logo-img {
       max-width: 280px;
       border-radius: 12px;
       animation: pulse 2s infinite;
+      position: relative;
+      z-index: 1;
     }
     @keyframes pulse {
       0%,100% { transform: scale(1); }
       50% { transform: scale(1.08); }
     }
+
+    /* Redes sociales */
     .social-icons img {
       width: 40px;
       height: 40px;
@@ -73,6 +85,8 @@
     .social-icons img:hover {
       transform: scale(1.2);
     }
+
+    /* Footer legal */
     footer {
       font-size: 0.8rem;
     }
@@ -82,12 +96,14 @@
 
   <!-- Contenido principal -->
   <div class="container py-5 position-relative" style="z-index: 1;">
-    <img src="https://iili.io/KHIMXUP.md.jpg" alt="Logo LUCAS LUCKY" class="logo-img mb-4">
+    <div class="logo-container">
+      <img src="https://iili.io/KHIMXUP.md.jpg" alt="Logo LUCAS LUCKY" class="logo-img">
+    </div>
+
     <h1 class="display-4 fw-bold">LUCAS LUCKY™</h1>
     <p class="lead">
       🎰 Bienvenido a la nueva era del juego online.  
-      Descubrí la emoción de jugar, ganar y divertirte desde tu casa con LUCAS LUCKY™.  
-      Disfrutá de nuestros juegos seguros y entretenidos, con premios increíbles al alcance de tus manos.
+      Descubrí la emoción de jugar y ganar desde tu casa con LUCAS LUCKY™.
     </p>
     <a href="https://wa.me/5491171334027?text=hola%20lucas!%20Me%20podes%20crear%20un%20usuario%20por%20favor?" 
        class="btn btn-success btn-lg mt-3">
