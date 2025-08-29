@@ -6,20 +6,7 @@
   <title>LUCAS LUCKY™ - Tu lugar de suerte</title>
   <meta name="description" content="Bienvenido a la nueva era del juego online. LUCAS LUCKY™ te trae diversión, emoción y grandes premios al alcance de tu mano. ¡Jugá ahora!">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="LUCAS LUCKY™ - Tu lugar de suerte">
-  <meta property="og:description" content="Bienvenido a la nueva era del juego online. ¡Diversión, emoción y premios increíbles te esperan!">
-  <meta property="og:image" content="https://iili.io/KHIMXUP.md.jpg">
-  <meta property="og:url" content="https://lucas-lucky.com/">
-  <meta property="og:type" content="website">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="LUCAS LUCKY™ - Tu lugar de suerte">
-  <meta name="twitter:description" content="Bienvenido a la nueva era del juego online. ¡Diversión, emoción y premios increíbles te esperan!">
-  <meta name="twitter:image" content="https://iili.io/KHIMXUP.md.jpg">
-
-  <!-- Librerías -->
+  <!-- Bootstrap + FontAwesome -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -34,8 +21,6 @@
       text-shadow: 0 0 6px rgba(0,0,0,0.5);
       position: relative;
     }
-
-    /* Halo de neón violeta centrado */
     .logo-container {
       position: relative;
       display: inline-block;
@@ -45,8 +30,7 @@
     .logo-container::after {
       content: '';
       position: absolute;
-      top: 50%;
-      left: 50%;
+      top: 50%; left: 50%;
       transform: translate(-50%, -50%);
       border-radius: 50%;
       background: radial-gradient(circle, rgba(186,85,211,0.7) 0%, rgba(138,43,226,0.5) 70%, transparent 100%);
@@ -56,13 +40,11 @@
     }
     .logo-container::before { width: 300px; height: 300px; }
     .logo-container::after { width: 380px; height: 380px; filter: blur(160px); opacity: 0.5; animation-delay: 1s; }
-
     @keyframes neonPulse {
       0% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
       50% { opacity: 0.9; transform: translate(-50%, -50%) scale(1.2); }
       100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
     }
-
     .logo-img {
       max-width: 280px;
       border-radius: 12px;
@@ -74,8 +56,6 @@
       0%,100% { transform: scale(1); }
       50% { transform: scale(1.08); }
     }
-
-    /* Botón WhatsApp con hover obvio */
     .btn-whatsapp {
       display: inline-flex;
       align-items: center;
@@ -91,37 +71,49 @@
       transition: all 0.3s ease;
       text-decoration: none;
     }
-    .btn-whatsapp i {
-      transition: all 0.3s ease;
-    }
     .btn-whatsapp:hover {
       background-color: #13a745;
       box-shadow: 0 0 25px #25D366, 0 0 40px #25D366 inset;
       transform: scale(1.05);
     }
-    .btn-whatsapp:hover i {
-      text-shadow: 0 0 15px #25D366, 0 0 25px #25D366;
-    }
-
-    /* Redes sociales */
-    .social-icons img {
-      width: 40px;
-      height: 40px;
-      margin: 0 10px;
-      transition: transform 0.3s;
-    }
+    .social-icons img { width: 40px; height: 40px; margin: 0 10px; transition: transform 0.3s; }
     .social-icons img:hover { transform: scale(1.2); }
+    footer { font-size: 0.75rem; padding: 8px 0; }
 
-    /* Footer más compacto */
-    footer {
-      font-size: 0.75rem;
-      padding: 8px 0;
+    /* === RULETA === */
+    .ruleta-container {
+      margin: 40px auto;
+      max-width: 500px;
+      text-align: center;
     }
-
-    @media (max-width: 480px) {
-      .logo-img { max-width: 220px; }
-      .btn-whatsapp { font-size: 1rem; padding: 8px 16px; }
-      .social-icons img { width: 32px; height: 32px; }
+    .wheel {
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      border: 8px solid #fff;
+      margin: 20px auto;
+      background: conic-gradient(#8e44ad 0 25%, #3498db 0 50%, #8e44ad 0 75%, #3498db 0 100%);
+      transition: transform 4s cubic-bezier(.17,.67,.83,.67);
+      position: relative;
+      box-shadow: 0 0 30px rgba(255,255,255,.4);
+    }
+    .pointer {
+      width: 0; height: 0;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-bottom: 30px solid yellow;
+      margin: 0 auto;
+    }
+    .btn-spin {
+      padding: 10px 20px;
+      font-size: 1rem;
+      background: #ffcc00;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+      box-shadow: 0 0 10px #ffcc00;
     }
   </style>
 </head>
@@ -133,16 +125,22 @@
     </div>
 
     <h1 class="display-4 fw-bold"> LUCAS LUCKY™ VIRTUAL CASINO 🎰</h1>
-
-    <p class="lead">
-       Bienvenido a la nueva era del juego online 💰🏆<br>
-      Descubrí la emoción de jugar y ganar desde tu casa con LUCAS LUCKY™ 🎲✨
-    </p>
+    <p class="lead">Bienvenido a la nueva era del juego online 💰🏆<br>
+    Descubrí la emoción de jugar y ganar desde tu casa con LUCAS LUCKY™ 🎲✨</p>
 
     <a href="https://wa.me/5491171334027?text=hola%20lucas!%20Me%20podes%20crear%20un%20usuario%20por%20favor?" 
        class="btn-whatsapp mt-3">
       <i class="fa-brands fa-whatsapp"></i> ¡Quiero jugar ahora!
     </a>
+
+    <!-- === RULETA INTERACTIVA === -->
+    <div class="ruleta-container">
+      <h2 class="h4">🎁 Girá la ruleta y llevate un bono</h2>
+      <div class="pointer"></div>
+      <div id="wheel" class="wheel"></div>
+      <button id="spinBtn" class="btn-spin">GIRAR</button>
+      <p id="resultado" class="mt-2 fw-bold"></p>
+    </div>
 
     <div class="mt-3 social-icons">
       <a href="https://www.facebook.com/" target="_blank">
@@ -163,6 +161,37 @@
       </small>
     </div>
   </footer>
+
+  <script>
+    const wheel = document.getElementById("wheel");
+    const spinBtn = document.getElementById("spinBtn");
+    const result = document.getElementById("resultado");
+
+    const premios = [
+      "💎 50 fichas gratis",
+      "🎲 10 giros extra",
+      "🔥 Bono 100% en 1er depósito",
+      "🎁 Acceso a torneo exclusivo"
+    ];
+
+    let girando = false;
+
+    spinBtn.addEventListener("click", () => {
+      if (girando) return;
+      girando = true;
+      result.textContent = "";
+
+      const rand = Math.floor(Math.random() * premios.length);
+      const grados = 360 * 5 + (rand * (360 / premios.length));
+
+      wheel.style.transform = `rotate(${grados}deg)`;
+
+      setTimeout(() => {
+        result.textContent = `¡Ganaste: ${premios[rand]}!`;
+        girando = false;
+      }, 4200);
+    });
+  </script>
 
 </body>
 </html>
