@@ -19,9 +19,17 @@
       position: relative;
     }
 
-    /* Ruleta estilo elegante */
+    /* Contenedor principal */
+    .container {
+      padding: 15px;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    /* Ruleta */
     .ruleta-container {
-      margin: 50px auto;
+      margin-top: 40px;
       text-align: center;
     }
     #wheelCanvas {
@@ -29,7 +37,8 @@
       box-shadow: 0 0 20px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.5);
     }
     .pointer {
-      width: 0; height: 0;
+      width: 0;
+      height: 0;
       border-left: 15px solid transparent;
       border-right: 15px solid transparent;
       border-bottom: 30px solid gold;
@@ -39,7 +48,7 @@
     }
     .btn-spin {
       margin-top: 20px;
-      padding: 12px 30px;
+      padding: 10px 25px;
       background: gold;
       color: black;
       font-weight: bold;
@@ -62,18 +71,23 @@
     footer {
       font-size: 0.75rem;
       padding: 8px 0;
+      margin-top: 40px;
+      text-align: center;
     }
 
     /* Estilo para el mensaje de resultado */
     #resultado {
-      font-size: 1.5rem;
+      font-size: 1.1rem;
       color: #FFD700;
       background-color: #333;
-      padding: 15px;
-      border-radius: 10px;
+      padding: 12px;
+      border-radius: 8px;
       text-align: center;
       width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+      line-height: 1.6;
     }
 
     /* Estilo para resaltar la urgencia */
@@ -81,17 +95,46 @@
       color: #FF6347;
       font-weight: bold;
     }
+    
+    /* Mensaje de personas que giraron */
+    .contador-personas {
+      font-size: 1.3rem;
+      color: #FFD700;
+      font-weight: bold;
+      margin-top: 30px;
+    }
+
+    /* Estilos generales */
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .social-icons img {
+      width: 35px;
+      height: 35px;
+      margin: 0 8px;
+      transition: transform 0.3s;
+    }
+
+    .social-icons img:hover {
+      transform: scale(1.1);
+    }
+
   </style>
 </head>
-<body class="text-center">
+<body>
 
-  <div class="container mt-4 text-center">
-    <h3 class="fw-bold" style="font-size: 1.5rem; color: #FFD700;">
+  <div class="container">
+    <h3 class="contador-personas">
       🎰 ¡HOY, <span id="contador-personas">150</span> PERSONAS HAN GIRADO LA RUEDA DE LA FORTUNA! 🎰
     </h3>
-    <p class="lead" style="font-size: 1.2rem; color: white;">
-      ¿Y TÚ? ¡TRAÉ A TUS AMIGOS A GIRAR Y GANAR JUNTOS! 🤩
-    </p>
+    <p>¿Y TÚ? ¡TRAÉ A TUS AMIGOS A GIRAR Y GANAR JUNTOS! 🤩</p>
     <div class="alert alert-warning" role="alert" style="font-size: 1rem; font-weight: bold;">
       🚨 SOLO PARA MAYORES DE 18 AÑOS 🚨
     </div>
@@ -101,16 +144,10 @@
     </a>
   </div>
 
-  <div class="container py-4 position-relative">
-    <div class="logo-container">
-      <img src="https://iili.io/KHIMXUP.md.jpg" alt="Logo LUCAS LUCKY" class="logo-img">
-    </div>
-
-    <h1 class="display-4 fw-bold"> LUCAS LUCKY™ VIRTUAL CASINO 🎰</h1>
-    <p class="lead">
-      Bienvenido a la nueva era del juego online 💰🏆<br>
-      Descubrí la emoción de jugar y ganar desde tu casa con LUCAS LUCKY™ 🎲✨
-    </p>
+  <div class="container py-4">
+    <h1>LUCAS LUCKY™ VIRTUAL CASINO 🎰</h1>
+    <p>Bienvenido a la nueva era del juego online 💰🏆<br>
+       Descubrí la emoción de jugar y ganar desde tu casa con LUCAS LUCKY™ 🎲✨</p>
 
     <a href="https://wa.me/5491171334027?text=hola%20lucas!%20Me%20podes%20crear%20un%20usuario%20por%20favor?" 
        class="btn-whatsapp mt-3">
