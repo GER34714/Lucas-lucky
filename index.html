@@ -6,7 +6,23 @@
   <title>LUCAS LUCKY™ - Tu lugar de suerte</title>
   <meta name="description" content="Bienvenido a la nueva era del juego online. LUCAS LUCKY™ te trae diversión, emoción y grandes premios al alcance de tu mano. ¡Jugá ahora!">
 
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+  <!-- Open Graph -->
+  <meta property="og:title" content="LUCAS LUCKY™ - Tu lugar de suerte">
+  <meta property="og:description" content="Bienvenido a la nueva era del juego online. ¡Diversión, emoción y premios increíbles te esperan!">
+  <meta property="og:image" content="https://iili.io/KHIMXUP.md.jpg">
+  <meta property="og:url" content="https://lucas-lucky.com/">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LUCAS LUCKY™ - Tu lugar de suerte">
+  <meta name="twitter:description" content="Bienvenido a la nueva era del juego online. ¡Diversión, emoción y premios increíbles te esperan!">
+  <meta name="twitter:image" content="https://iili.io/KHIMXUP.md.jpg">
+
+  <!-- Librerías -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
     body {
@@ -19,33 +35,9 @@
       position: relative;
     }
 
-    /* Contenedor principal */
-    .container {
-      padding: 15px;
-      max-width: 1200px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    /* Mensaje de participantes */
-    .contador-personas {
-      font-size: 1.3rem;
-      color: #FFD700;
-      font-weight: bold;
-      margin-top: 30px;
-    }
-
-    .alert-warning {
-      font-size: 1rem;
-      font-weight: bold;
-      margin-top: 20px;
-      color: #fff;
-      background-color: #ffcc00;
-    }
-
-    /* Ruleta */
+    /* Ruleta estilo elegante */
     .ruleta-container {
-      margin-top: 40px;
+      margin: 50px auto;
       text-align: center;
     }
     #wheelCanvas {
@@ -53,8 +45,7 @@
       box-shadow: 0 0 20px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.5);
     }
     .pointer {
-      width: 0;
-      height: 0;
+      width: 0; height: 0;
       border-left: 15px solid transparent;
       border-right: 15px solid transparent;
       border-bottom: 30px solid gold;
@@ -64,7 +55,7 @@
     }
     .btn-spin {
       margin-top: 20px;
-      padding: 10px 25px;
+      padding: 12px 30px;
       background: gold;
       color: black;
       font-weight: bold;
@@ -87,78 +78,24 @@
     footer {
       font-size: 0.75rem;
       padding: 8px 0;
-      margin-top: 40px;
-      text-align: center;
     }
-
-    /* Estilo para el mensaje de resultado */
-    #resultado {
-      font-size: 1.1rem;
-      color: #FFD700;
-      background-color: #333;
-      padding: 12px;
-      border-radius: 8px;
-      text-align: center;
-      width: 100%;
-      max-width: 500px;
-      margin: 0 auto;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-      line-height: 1.6;
-    }
-
-    /* Estilo para resaltar la urgencia */
-    .urgente {
-      color: #FF6347;
-      font-weight: bold;
-    }
-
-    /* Estilos generales */
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 1rem;
-      line-height: 1.5;
-    }
-
-    .social-icons img {
-      width: 35px;
-      height: 35px;
-      margin: 0 8px;
-      transition: transform 0.3s;
-    }
-
-    .social-icons img:hover {
-      transform: scale(1.1);
-    }
-
   </style>
 </head>
-<body>
+<body class="text-center">
 
-  <div class="container">
-    <h3 class="contador-personas">
-      🎰 ¡HOY, <span id="contador-personas">150</span> PERSONAS HAN GIRADO LA RUEDA DE LA FORTUNA! 🎰
-    </h3>
-    <p>¿Y TÚ? ¡TRAÉ A TUS AMIGOS A GIRAR Y GANAR JUNTOS! 🤩</p>
-    <div class="alert alert-warning" role="alert">
-      🚨 SOLO PARA MAYORES DE 18 AÑOS 🚨
+  <div class="container py-4 position-relative">
+    <div class="logo-container">
+      <img src="https://iili.io/KHIMXUP.md.jpg" alt="Logo LUCAS LUCKY" class="logo-img">
     </div>
-    <a href="https://wa.me/5491171334027?text=Quiero%20traer%20a%20mis%20amigos%20a%20jugar%20en%20Lucas%20Lucky" 
-       class="btn btn-success mt-3">
-      ¡INVITA A TUS AMIGOS AHORA!
-    </a>
-  </div>
 
-  <div class="container py-4">
-    <h1>LUCAS LUCKY™ VIRTUAL CASINO 🎰</h1>
-    <p>Bienvenido a la nueva era del juego online 💰🏆<br>
-       Descubrí la emoción de jugar y ganar desde tu casa con LUCAS LUCKY™ 🎲✨</p>
+    <h1 class="display-4 fw-bold"> LUCAS LUCKY™ VIRTUAL CASINO 🎰</h1>
+    <p class="lead">
+      Bienvenido a la nueva era del juego online 💰🏆<br>
+      Descubrí la emoción de jugar y ganar desde tu casa con LUCAS LUCKY™ 🎲✨
+    </p>
 
     <a href="https://wa.me/5491171334027?text=hola%20lucas!%20Me%20podes%20crear%20un%20usuario%20por%20favor?" 
-       class="btn-whatsapp mt-3">
+      class="btn-whatsapp mt-3">
       <i class="fa-brands fa-whatsapp"></i> ¡Quiero jugar ahora!
     </a>
 
@@ -192,43 +129,29 @@
   </footer>
 
   <script>
-    let personas = 150; // Inicia con 150 personas
-    const contadorElement = document.getElementById("contador-personas");
-
-    // Simula el aumento de personas cada 2 segundos
-    const incrementarContador = setInterval(() => {
-      if (personas < 256) { // Puedes cambiar el número límite si quieres que el contador termine en otro valor
-        personas++;
-        contadorElement.textContent = personas;
-      } else {
-        clearInterval(incrementarContador); // Detiene el contador al llegar a 256
-      }
-    }, 100); // Aumenta el contador cada 100ms para que sea progresivo
-
     const canvas = document.getElementById("wheelCanvas");
     const ctx = canvas.getContext("2d");
     const spinBtn = document.getElementById("spinBtn");
     const result = document.getElementById("resultado");
 
     const premios = [
-      "💎 300 fichas (c/carga mínima)",
-      "💎 500 fichas (c/carga mínima)",
-      "💎 100 fichas (sin carga)",
-      "🎉 15% extra en tu 1ra carga",
-      "🎉 25% extra en tu 2da carga",
-      "🎉 30% extra en tu 3ra carga",
-      "💎 200 fichas (c/carga mínima)",
-      "🎯 Seguí participando"
+      "💎 50 fichas gratis",
+      "🎲 10 giros extra",
+      "🔥 Bono 100%",
+      "🎁 Torneo VIP",
+      "💰 Cashback 10%",
+      "⭐ 20 fichas demo",
+      "🎉 5 giros gratis",
+      "🏆 Upgrade VIP"
     ];
 
     const colores = [
-      "#DAA520", "#B8860B", "#8B4513", "#FFD700", 
-      "#C0C0C0", "#D3D3D3", "#A9A9A9", "#696969"
+      "#DAA520", "#B8860B", "#8B4513", "#FFD700", // Colores dorados y cálidos
+      "#C0C0C0", "#D3D3D3", "#A9A9A9", "#696969" // Grises elegantes
     ];
 
     let startAngle = 0;
     const arc = Math.PI / (premios.length / 2);
-    let spinCount = 0;
 
     function dibujarRuleta() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -240,6 +163,7 @@
         ctx.arc(160, 160, 160, angle, angle + arc);
         ctx.closePath();
         ctx.fill();
+        // texto
         ctx.save();
         ctx.fillStyle = "white";
         ctx.translate(160, 160);
@@ -270,32 +194,13 @@
       const grados = startAngle * 180 / Math.PI + 90;
       const arcd = 360 / premios.length;
       const index = Math.floor((360 - grados % 360) / arcd);
-      
-      // Obtener fecha y hora actual
-      const ahora = new Date();
-      const fechaHora = ahora.toLocaleString(); // Formato de fecha y hora local
-
-      result.textContent = `🎉 ¡Premio ganado: ${premios[index]}! 🎉\nPremio ganado el: ${fechaHora}\n\n💥 Premio válido por 5 minutos nada más! 💥\n¡Apurate a reclamarlo! 📲❤️😉\n\nRECORDÁ SACARLE CAPTURA!`;
-
-      if (premios[index] === "🎯 Seguí participando") {
-        spinCount++; // Aumenta el contador de giros
-      }
-
-      confetti();
+      result.textContent = `¡Ganaste: ${premios[index]}! 🎉`;
       localStorage.setItem("ultimaRuleta", new Date().toDateString());
       spinBtn.disabled = true;
       girando = false;
     }
 
     spinBtn.addEventListener("click", () => {
-      const ultima = localStorage.getItem("ultimaRuleta");
-      const hoy = new Date().toDateString();
-
-      if (ultima === hoy) {
-        result.textContent = "Ya giraste hoy 🎯 Volvé mañana.";
-        return;
-      }
-
       if (girando) return;
       girando = true;
       result.textContent = "";
@@ -305,6 +210,7 @@
       rotar();
     });
 
+    // Verificar si ya giró hoy
     window.onload = () => {
       const ultima = localStorage.getItem("ultimaRuleta");
       const hoy = new Date().toDateString();
