@@ -1,164 +1,186 @@
-/* FUENTE Y BASE */
+/* FUENTES Y RESET BÁSICO */
 body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
     overflow-x: hidden;
-    /* Degradado de fondo para un look premium */
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
     color: white;
-    position: relative;
     min-height: 100vh;
+    background-color: #0d0d20; /* Fondo base muy oscuro */
+    position: relative; /* Para el fondo de neón */
+}
+
+/* 🌌 FONDO FUTURISTA DE NEÓN */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(200, 0, 255, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(0, 200, 255, 0.2) 0%, transparent 50%),
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect x="0" y="0" width="100" height="100" fill="transparent"/><path d="M50 0L100 50L50 100L0 50Z" fill="rgba(20,20,40,0.4)" stroke="rgba(20,20,40,0.6)" stroke-width="2"/></svg>');
+    background-size: cover, cover, 30px 30px; /* Cubre el fondo y repite el patrón */
+    background-position: center, center, 0 0;
+    filter: brightness(1.2) contrast(1.1);
+    opacity: 0.8;
+    z-index: -2;
+    animation: backgroundShift 30s infinite linear;
+}
+
+/* Animación para el fondo que simula movimiento lento */
+@keyframes backgroundShift {
+    0% { background-position: center, center, 0 0; }
+    100% { background-position: center, center, 30px 30px; }
 }
 
 /* EFECTOS DE BRILLO Y NEÓN */
-.text-shadow {
-    text-shadow: 0 0 6px rgba(0,0,0,0.5);
+.neon-title {
+    font-family: 'Oswald', sans-serif; /* Fuente más impactante */
+    color: #00e0ff; /* Cian brillante */
+    text-shadow: 0 0 8px #00e0ff, 0 0 20px #00e0ff, 0 0 30px rgba(0,224,255,0.8);
+    animation: titleGlow 1.5s infinite alternate;
 }
 
-.neon-text {
-    /* Color del texto para hacer contraste con el neón */
-    color: #f1c40f; 
-    text-shadow: 0 0 5px #f1c40f, 0 0 10px rgba(255, 255, 0, 0.7);
+@keyframes titleGlow {
+    0% { text-shadow: 0 0 8px #00e0ff, 0 0 20px #00e0ff; }
+    100% { text-shadow: 0 0 12px #00e0ff, 0 0 25px #00e0ff, 0 0 40px rgba(0,224,255,0.7); }
 }
 
-.casino-glow {
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+.neon-bonus {
+    color: #ff00ff; /* Magenta brillante */
+    text-shadow: 0 0 5px #ff00ff, 0 0 10px rgba(255,0,255,0.7);
 }
 
-/* LOGO Y PULSO */
-.logo-container {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 30px;
-}
-
-/* El efecto de pulso violeta/azul está perfecto */
-.logo-container::before,
-.logo-container::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(186,85,211,0.7) 0%, rgba(138,43,226,0.5) 70%, transparent 100%);
-    filter: blur(130px);
-    z-index: -1;
-    animation: neonPulse 2s infinite alternate;
-}
-.logo-container::before { width: 300px; height: 300px; }
-.logo-container::after { width: 380px; height: 380px; filter: blur(160px); opacity: 0.5; animation-delay: 1s; }
-
-@keyframes neonPulse {
-    0% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
-    50% { opacity: 0.9; transform: translate(-50%, -50%) scale(1.2); }
-    100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
-}
-
-.logo-img {
-    max-width: 280px;
-    border-radius: 12px;
-    /* La animación pulse es genial, la mantengo */
-    animation: pulse 2s infinite; 
-    position: relative;
-    z-index: 1;
-}
-@keyframes pulse {
-    0%,100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-}
-
-/* BOTÓN WHATSAPP (CTA PRINCIPAL) */
-.btn-whatsapp {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 15px 30px;
-    font-size: 1.2rem; /* Un poco más grande para el CTA */
-    font-weight: 900; /* Extra bold */
-    color: white;
-    background-color: #25D366; /* Verde WhatsApp */
-    border-radius: 12px;
-    border: 2px solid #fff; /* Borde para resaltarlo más */
-    box-shadow: 0 0 15px #25D366, 0 0 30px #25D366 inset;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    text-transform: uppercase;
-}
-
-.pulse-cta {
-    animation: cta-pulse 1.5s infinite alternate;
-}
-
-@keyframes cta-pulse {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.05); }
-}
-
-.btn-whatsapp:hover {
-    background-color: #13a745;
-    box-shadow: 0 0 30px #25D366, 0 0 50px #25D366 inset;
-    transform: scale(1.08);
-}
-
-/* ICONOS SOCIALES */
-.social-icons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.social-icons a {
-    margin: 0 15px;
-    color: white; /* Color base */
-    transition: color 0.3s, transform 0.3s;
+.casino-description {
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+    color: #e0e0e0;
 }
 
 .social-glow {
-    /* Efecto de brillo sutil en los iconos sociales */
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 15px rgba(255, 255, 255, 0.4);
+    color: #00e0ff; /* Cian para iconos */
+    text-shadow: 0 0 5px #00e0ff, 0 0 10px rgba(0,224,255,0.5);
 }
 
-.social-icons a:hover {
-    color: #f1c40f; /* Brillo dorado al pasar el ratón */
-    transform: scale(1.3);
+/* ⬆️ ENCABEZADO SUPERIOR */
+.main-header {
+    background-color: rgba(13, 13, 32, 0.7); /* Fondo semi-transparente oscuro */
+    backdrop-filter: blur(5px); /* Efecto de desenfoque */
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(0, 224, 255, 0.3); /* Línea de neón inferior */
 }
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo {
+    max-width: 100px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 224, 255, 0.5); /* Sombra de neón */
+}
+
+.main-nav a {
+    color: #e0e0e0;
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 1.1rem;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.main-nav a:hover {
+    color: #00e0ff; /* Color de neón al pasar el ratón */
+    text-shadow: 0 0 5px #00e0ff;
+}
+
+/* 🦸‍♂️ SECCIÓN HERO */
+.hero-section {
+    padding-top: 100px; /* Espacio para el header fijo */
+    position: relative;
+    z-index: 1; /* Para que esté sobre el fondo animado */
+}
+
+.hero-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr; /* Izquierda, Centro (ruleta), Derecha */
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-left-cta, .hero-right-social {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Botón de WhatsApp en el Hero */
+.btn-whatsapp-hero {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white;
+    background-color: #25D366;
+    border-radius: 8px;
+    border: none;
+    text-decoration: none;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px #25D366, 0 0 20px #25D366 inset;
+    transition: all 0.3s ease;
+}
+.btn-whatsapp-hero:hover {
+    background-color: #13a745;
+    box-shadow: 0 0 20px #25D366, 0 0 30px #25D366 inset;
+    transform: scale(1.05);
+}
+
 
 /* RULETA */
-.ruleta-container {
-    margin: 50px auto;
-    text-align: center;
+.ruleta-block {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
 }
 
 #wheelCanvas {
     border-radius: 50%;
-    /* Borde dorado de casino */
-    border: 8px solid gold; 
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
-    background-color: #222;
+    border: 8px solid #ff00ff; /* Borde de neón magenta para la ruleta */
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.7), 0 0 40px rgba(255, 0, 255, 0.5);
+    background-color: #050510; /* Fondo muy oscuro para contraste */
 }
 
 .pointer {
     width: 0; height: 0;
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
-    border-bottom: 30px solid #ff0000; /* Rojo llamativo */
+    border-bottom: 30px solid #00e0ff; /* Puntero cian neón */
     margin: 0 auto -20px;
     position: relative;
     z-index: 2;
-    filter: drop-shadow(0 0 10px #ff0000); /* Brillo al puntero */
+    filter: drop-shadow(0 0 10px #00e0ff);
 }
 
 .btn-spin {
     margin-top: 25px;
     padding: 15px 40px;
-    background: gold;
-    color: #111;
+    background: #00e0ff; /* Botón de giro cian */
+    color: #0d0d20;
     font-weight: 900;
     border: none;
     border-radius: 12px;
     text-transform: uppercase;
-    /* Efecto de brillo de botón de casino */
-    box-shadow: 0 0 15px gold, 0 0 25px orange inset;
+    box-shadow: 0 0 15px #00e0ff, 0 0 25px rgba(0, 224, 255, 0.7) inset;
     transition: 0.3s;
 }
 
@@ -169,31 +191,129 @@ body {
     cursor: not-allowed;
 }
 .btn-spin:hover:enabled {
-    background: #ffd700;
-    box-shadow: 0 0 30px gold, 0 0 50px orange inset;
+    background: #4defff;
+    box-shadow: 0 0 30px #00e0ff, 0 0 50px rgba(0, 224, 255, 0.7) inset;
     transform: scale(1.05);
 }
 
-/* FOOTER */
-footer {
+/* 🎮 SECCIÓN JUEGOS DESTACADOS */
+.games-section {
+    background-color: rgba(13, 13, 32, 0.8); /* Fondo ligeramente más claro que el body */
+    padding: 60px 0;
+    border-top: 1px solid rgba(255, 0, 255, 0.2);
+    border-bottom: 1px solid rgba(0, 224, 255, 0.2);
+}
+
+.game-card {
+    background-color: #1a1a30;
+    border: 1px solid rgba(255, 0, 255, 0.3);
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
+}
+
+.game-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 0 25px rgba(255, 0, 255, 0.7), 0 0 40px rgba(0, 224, 255, 0.4);
+    border-color: #00e0ff;
+}
+
+.game-icon {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    color: #ff00ff; /* Iconos magenta */
+    text-shadow: 0 0 10px #ff00ff;
+}
+
+.game-title {
+    font-family: 'Oswald', sans-serif;
+    color: #00e0ff;
+    margin-bottom: 10px;
+    text-shadow: 0 0 5px #00e0ff;
+}
+
+.game-description {
+    color: #ccc;
+    font-size: 0.95em;
+}
+
+/* 🦶 FOOTER */
+.site-footer {
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    border-top: 1px solid rgba(0, 224, 255, 0.2);
     font-size: 0.85rem;
-    background-color: rgba(0, 0, 0, 0.4) !important; /* Fondo semitransparente */
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-shadow: 0 0 3px rgba(0,0,0,0.5);
+}
+
+/* 🟢 BOTÓN WHATSAPP FLOTANTE */
+.whatsapp-float-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366;
+    color: white;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.2em;
+    box-shadow: 0 0 15px #25D366, 0 0 25px rgba(37,211,102,0.7);
+    z-index: 1000;
+    transition: transform 0.3s;
+    text-decoration: none;
+    animation: whatsappGlow 2s infinite alternate;
+}
+
+.whatsapp-float-btn:hover {
+    transform: scale(1.1);
+}
+
+@keyframes whatsappGlow {
+    0%, 100% { box-shadow: 0 0 15px #25D366, 0 0 25px rgba(37,211,102,0.7); }
+    50% { box-shadow: 0 0 25px #25D366, 0 0 40px rgba(37,211,102,0.9); }
+}
+
+.pulse-cta {
+    animation: ctaPulse 1.5s infinite alternate;
+}
+@keyframes ctaPulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
 }
 
 /* RESPONSIVIDAD */
-@media (max-width: 576px) {
-    .display-3 {
-        font-size: 2.5rem;
+@media (max-width: 768px) {
+    .main-header .main-nav {
+        display: none; /* Puedes implementar un menú hamburguesa aquí si quieres */
     }
-    .logo-img {
-        max-width: 200px;
+    .main-header .header-content {
+        justify-content: center;
     }
-    .btn-whatsapp {
-        font-size: 1rem;
-        padding: 12px 20px;
+    .hero-content-grid {
+        grid-template-columns: 1fr; /* Columna única en móvil */
+        gap: 30px;
     }
-    .footer-content {
-        padding: 10px;
+    .hero-left-cta, .hero-right-social {
+        order: -1; /* Mover el CTA superior */
+    }
+    .hero-left-cta .neon-bonus {
+        margin-top: 20px;
+    }
+    .hero-left-cta .btn-whatsapp-hero {
+        width: 80%; /* Hacer el botón más ancho */
+    }
+    .games-section .row-cols-md-3 {
+        --bs-rows-cols-md: 1; /* Apila las tarjetas de juego */
+    }
+    .whatsapp-float-btn {
+        width: 55px;
+        height: 55px;
+        font-size: 1.8em;
+        bottom: 20px;
+        right: 20px;
     }
 }
