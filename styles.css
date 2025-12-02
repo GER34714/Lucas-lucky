@@ -1,0 +1,199 @@
+/* FUENTE Y BASE */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+    /* Degradado de fondo para un look premium */
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    color: white;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* EFECTOS DE BRILLO Y NEÓN */
+.text-shadow {
+    text-shadow: 0 0 6px rgba(0,0,0,0.5);
+}
+
+.neon-text {
+    /* Color del texto para hacer contraste con el neón */
+    color: #f1c40f; 
+    text-shadow: 0 0 5px #f1c40f, 0 0 10px rgba(255, 255, 0, 0.7);
+}
+
+.casino-glow {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+/* LOGO Y PULSO */
+.logo-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 30px;
+}
+
+/* El efecto de pulso violeta/azul está perfecto */
+.logo-container::before,
+.logo-container::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(186,85,211,0.7) 0%, rgba(138,43,226,0.5) 70%, transparent 100%);
+    filter: blur(130px);
+    z-index: -1;
+    animation: neonPulse 2s infinite alternate;
+}
+.logo-container::before { width: 300px; height: 300px; }
+.logo-container::after { width: 380px; height: 380px; filter: blur(160px); opacity: 0.5; animation-delay: 1s; }
+
+@keyframes neonPulse {
+    0% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 0.9; transform: translate(-50%, -50%) scale(1.2); }
+    100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
+}
+
+.logo-img {
+    max-width: 280px;
+    border-radius: 12px;
+    /* La animación pulse es genial, la mantengo */
+    animation: pulse 2s infinite; 
+    position: relative;
+    z-index: 1;
+}
+@keyframes pulse {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* BOTÓN WHATSAPP (CTA PRINCIPAL) */
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    font-size: 1.2rem; /* Un poco más grande para el CTA */
+    font-weight: 900; /* Extra bold */
+    color: white;
+    background-color: #25D366; /* Verde WhatsApp */
+    border-radius: 12px;
+    border: 2px solid #fff; /* Borde para resaltarlo más */
+    box-shadow: 0 0 15px #25D366, 0 0 30px #25D366 inset;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.pulse-cta {
+    animation: cta-pulse 1.5s infinite alternate;
+}
+
+@keyframes cta-pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
+}
+
+.btn-whatsapp:hover {
+    background-color: #13a745;
+    box-shadow: 0 0 30px #25D366, 0 0 50px #25D366 inset;
+    transform: scale(1.08);
+}
+
+/* ICONOS SOCIALES */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.social-icons a {
+    margin: 0 15px;
+    color: white; /* Color base */
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-glow {
+    /* Efecto de brillo sutil en los iconos sociales */
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.social-icons a:hover {
+    color: #f1c40f; /* Brillo dorado al pasar el ratón */
+    transform: scale(1.3);
+}
+
+/* RULETA */
+.ruleta-container {
+    margin: 50px auto;
+    text-align: center;
+}
+
+#wheelCanvas {
+    border-radius: 50%;
+    /* Borde dorado de casino */
+    border: 8px solid gold; 
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+    background-color: #222;
+}
+
+.pointer {
+    width: 0; height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 30px solid #ff0000; /* Rojo llamativo */
+    margin: 0 auto -20px;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 0 10px #ff0000); /* Brillo al puntero */
+}
+
+.btn-spin {
+    margin-top: 25px;
+    padding: 15px 40px;
+    background: gold;
+    color: #111;
+    font-weight: 900;
+    border: none;
+    border-radius: 12px;
+    text-transform: uppercase;
+    /* Efecto de brillo de botón de casino */
+    box-shadow: 0 0 15px gold, 0 0 25px orange inset;
+    transition: 0.3s;
+}
+
+.btn-spin:disabled {
+    background: #555;
+    color: #aaa;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+.btn-spin:hover:enabled {
+    background: #ffd700;
+    box-shadow: 0 0 30px gold, 0 0 50px orange inset;
+    transform: scale(1.05);
+}
+
+/* FOOTER */
+footer {
+    font-size: 0.85rem;
+    background-color: rgba(0, 0, 0, 0.4) !important; /* Fondo semitransparente */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* RESPONSIVIDAD */
+@media (max-width: 576px) {
+    .display-3 {
+        font-size: 2.5rem;
+    }
+    .logo-img {
+        max-width: 200px;
+    }
+    .btn-whatsapp {
+        font-size: 1rem;
+        padding: 12px 20px;
+    }
+    .footer-content {
+        padding: 10px;
+    }
+}
